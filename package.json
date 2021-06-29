@@ -1,7 +1,7 @@
 {
-    "name": "realtime-pizza",
+    "name": "grillrilla",
     "version": "1.0.0",
-    "description": "This is our real time app by Coder's Gyan",
+    "description": "This is our real time app by GRILLRILLA",
     "main": "index.js",
     "author": "Karan Dhingra",
     "scripts": {
@@ -11,7 +11,8 @@
         "watch": "npx mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
-        "production": "mix --production"
+        "production": "mix --production",
+        "start": "node server.js"
     },
     "license": "MIT",
     "dependencies": {
@@ -41,5 +42,17 @@
         "resolve-url-loader": "4.0.0",
         "sass": "^1.35.1",
         "sass-loader": "12.1.0"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Karan-Dhingra/GRILLRILLA.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Karan-Dhingra/GRILLRILLA/issues"
+    },
+    "homepage": "https://github.com/Karan-Dhingra/GRILLRILLA#readme",
+    "keywords": [
+        "nodejs",
+        "food-ordering"
+    ]
 }
