@@ -1,0 +1,73 @@
+[{
+        "name": "Margherita Pizza",
+        "image": "/menu/1.jpg",
+        "price": 250,
+        "size": "small"
+    },
+    {
+        "name": "Vegies pizza",
+        "image": "/menu/2.jpg",
+        "price": "600",
+        "size": "large"
+    },
+    {
+        "name": "Marinara Pizza",
+        "image": "/menu/3.jpg",
+        "price": 300,
+        "size": "medium"
+    },
+    {
+        "name": "Carbonara Pizza",
+        "image": "/menu/4.jpg",
+        "price": 200,
+        "size": "small"
+    },
+    {
+        "name": "Panner Tanddori Wrap",
+        "image": "/menu/5.jpg",
+        "price": 500,
+        "size": "large"
+    },
+    {
+        "name": "Veg Spicy Paneer Burger",
+        "image": "/menu/6.jpg",
+        "price": 350,
+        "size": "special"
+    },
+    {
+        "name": "Special Grillrill Burger",
+        "image": "/menu/7.jpg",
+        "price": 200,
+        "size": "special"
+    },
+    {
+        "name": "Veg Corn Burger",
+        "image": "/menu/8.jpg",
+        "price": 600,
+        "size": "large"
+    },
+    {
+        "name": "Veg Sandwich",
+        "image": "/menu/9.jpg",
+        "price": 85,
+        "size": "regular"
+    },
+    {
+        "name": "South Sandwich",
+        "image": "/menu/10.jpg",
+        "price": 125,
+        "size": "medium"
+    },
+    {
+        "name": "Corn and Paneer Sandwich",
+        "image": "/menu/11.jpg",
+        "price": 140,
+        "size": "medium"
+    },
+    {
+        "name": "Mozerella Cheese Sandwich",
+        "image": "/menu/12.jpg",
+        "price": 150,
+        "size": "regular"
+    }
+]

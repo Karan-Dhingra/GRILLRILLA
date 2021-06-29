@@ -1,2 +1,182 @@
 # GRILLRILLA
-This is Realtime food ordering website. 
+
+GRILLRILLA is a real time Food Ordering website made with Node JS and Express Js.
+Mongodb is used as the database.
+
+To run this app in your PC you have to follow these Steps.
+
+## Screenshots
+
+#### Main Page
+
+![App Screenshot 1](/public/img/screenshots/1.png?raw=true "Optional Title")
+
+#### Menu (All the dishs are directly from Database)
+
+![App Screenshot 2](/public/img/screenshots/2.png?raw=true "Optional Title")
+
+#### Admin Page (Only for ADMINS)
+
+![App Screenshot 3](/public/img/screenshots/3.png?raw=true "Optional Title")
+
+## Tech Stack
+
+**Client:** Socket.io, TailwindCSS, EJS
+**Server:** Node, Express
+
+## Pre-requists
+
+#### You need to download these in your PC before you move on with other steps.
+
+- Node Js [refer here](https://www.guru99.com/download-install-node-js.html)
+- Mongodb [refer here](https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514)
+
+## Clone Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Karan-Dhingra/GRILLRILLA.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+## Install all Dependencies to run
+
+Install project with npm
+
+1. For Initializing npm modules, just press enter for each questions asked and move on.
+
+```bash
+  npm init
+```
+
+2. Install Express
+
+```bash
+  npm install express
+```
+
+3. Install Engine
+
+```bash
+  npm install ejs express-ejs-layouts
+```
+
+4. Install Nodemon to run our project
+
+```bash
+  npm install nodemon -g
+```
+
+5. To import features of Tailwind CSS in our project
+
+```bash
+  npm install tailwindcss
+```
+
+6. To compiler .sass file
+
+```bash
+  npm install laravel-mix
+```
+
+7. To use .sass file //This works as css file which is later on compiled with the help of larvel-mix.
+
+```bash
+  npm install node-sass
+```
+
+8. To connect with mongo db
+
+```bash
+  npm install connect-mongo
+```
+
+9. To install mongoose
+
+```bash
+  npm install mongoose
+```
+
+10. To store session in our database
+
+```bash
+  npm install express-session
+```
+
+11. To use .env file
+
+```bash
+  npm install dotenv
+```
+
+12. Axios for creating http requests
+
+```bash
+  npm install axios
+```
+
+13. To get notification
+
+```bash
+  npm install noty
+```
+
+14. To flash results and error if there are
+
+```bash
+  npm install express-flash
+```
+
+15. Passport helps in checking and login
+
+```bash
+  npm install passport passport-local express-session
+```
+
+16. It is used to store password in hash for SECURITY
+
+```bash
+  npm install bcrypt
+```
+
+17. To store current time stamp
+
+```bash
+  npm install moment
+```
+
+18. For making realtim events //using this we dont require to reload our page again for latest updates.
+
+```bash
+  npm install socket.io
+```
+
+## Further Steps
+
+Before running app you need to do some more steps.
+
+Go to file `.env.example` file rename file to `.env`
+
+```
+COOKIES_SECRET =
+MONGO_CONNECTION_URL =
+```
+
+You will find something like this after renaming file to `.env` just write something here.
+in `COOKIES_SECRET` you can write anything like `This is Cookie`
+
+In `MONGO_CONNECTION_URL` fill the address of your database. For this if you are
+locally on your PC just go to Mongo Compass and make a database let it be `GRILLRILLA`
+make a collection menu and insert Menu content by uploading file.
+You have a `Menu.json` file just upload there.
+
+## Finish
+
+That's it you have to go to local check in terminal on which port your app is
+running. Mostly it is `http://localhost:3000/`
