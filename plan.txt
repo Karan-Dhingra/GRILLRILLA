@@ -1,0 +1,65 @@
+1.  Dependencies
+        - express
+        - ejs express-ejs-layouts
+    Dev Dependencies
+        - nodemon
+
+2.  Create Server
+
+3.  Git Setup and first commit
+
+4.  Install Larvel Mix
+        - setup js and scss
+
+5.  Install Talwind css
+
+6 	Create Home Page
+
+7.	Create Cart Page
+		- Orders/Cart Page
+		- Signin Page
+		- Register Page
+
+8.  Move routes to Route File
+
+9.  Create dedicated Controllers
+
+10. Add to Cart functionality
+		- connect to mongo db
+		- use connect-mongo for sessions
+			- dependencies
+				- mongoose, express-session, connect-mongo, dotenv
+		- axios to send ajax request
+		- install notification library npm i noty
+11. Create login page with route
+
+12. Create registration page with route
+
+13. Build regiter crud
+		- dependencies express-flash express-session dotenv
+		- status code
+		
+14. Build login usin passport
+		- install dependencies passport passport-local express-session
+
+15. Create Order controling and link it in server.js
+
+16. Create Orders view with table for customera and admin
+
+17. Create Orders single page with status
+
+18. Place Order functionality
+
+19. Show all my orders on customer orders page
+
+20. Show orders on admin offer page
+
+21. Order tracker
+		- dependencies moment
+
+22. Socket Connection
+		- dependencies socket.io
+
+23. Build project for deployment
+
+24. Deploy project on live server

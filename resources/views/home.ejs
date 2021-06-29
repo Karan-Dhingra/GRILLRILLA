@@ -1,0 +1,46 @@
+<section class="hero py-16">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="w-1/2">
+            <h6 class="text-xl"><em>Are you hungry?</em></h6>
+            <h1 class="text-3xl md:text-6xl  font-bold">Don't Wait!</h1>
+            <a href="#menu"><button class="px-6 py-2 rounded-full mt-4 btn-primary text-white font-bold">Order
+                        Now</button></a>
+        </div>
+        <div class="w-1/2">
+            <img src="/public/img/burger-hero.png" alt="burger-hero">
+        </div>
+    </div>
+</section>
+
+<section class="menu container mx-auto py-8 mb-32">
+    <h1 class="text-3xl font-bold mb-8" id="menu">Menu</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 row-gap-16 gap-16 col-gap-12   ">
+
+        <% pizzas.forEach(function(pizza){ %>
+            <div class="card w-full md:w-72">
+                <div class="card-image">
+                    <img class="h-40 mb-4 mx-auto" src="/public/img/<%= pizza.image %>" alt="pizaa-menu ">
+                </div>
+                <div class="text-center">
+                    <h2 class="text-lg mb-4">
+                        <%= pizza.name %>
+                    </h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs">
+                            <%= pizza.size %>
+                        </span>
+                </div>
+                <div class="flex items-center justify-around mt-8">
+                    <span class="font-bold text-lg">
+                            ₹<%= pizza.price%>
+                        </span>
+                    <button data-pizza="<%= JSON.stringify(pizza) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>+</span>
+                            <span>Add</span>
+                        </button>
+                </div>
+            </div>
+            <% }) %>
+
+
+    </div>
+</section>

@@ -1,0 +1,43 @@
+<section class="comments light-section">
+    <div class="container mx-auto pt-12 comment-box">
+        <h1 class="font-bold text-2xl mb-4">All Comments</h1>
+        <% if(messages.success) { %>
+            <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
+                <p>
+                    <%= messages.success %>
+                </p>
+            </div>
+            <% } %>
+                <table class="w-full table-auto bg-white">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2  w-96 text-left">Email</th>
+                            <th class="px-4 py-2 w-96 text-left">Message</th>
+                            <th class="px-4 py-2 w-96 text-left">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(comment.length) { %>
+                            <% comment.forEach((comment)=> { %>
+                                <tr>
+                                    <td class="border px-4 py-2">
+                                        <%= comment.email %>
+                                    </td>
+                                    <td class="border px-4 py-2">
+                                        <%= comment.message %>
+                                    </td>
+                                    <td class="border px-4 py-2">
+                                        <%= moment(comment.createdAt).format('hh:mm A') %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td class="p-4"><span>No Comments Found!</span></td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+
+                </table>
+    </div>
+</section>
