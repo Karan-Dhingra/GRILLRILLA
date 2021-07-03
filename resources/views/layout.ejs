@@ -25,11 +25,11 @@
 </head>
 
 <body>
-    <nav class="container mx-auto flex items-center justify-between py-4" id="top">
+    <nav class="container mx-auto flex items-center justify-between py-4 default-navbar" id="top">
         <div>
             <a href="/"><img src="/public/img/grillrilla.svg" alt="logo" /></a>
         </div>
-        <div className="default-navbar">
+        <div class="default-navbar">
             <ul class="flex items-center default-ul">
                 <li class="ml-6 text-xl">
                     <a href="/">Menu</a>
@@ -90,73 +90,90 @@
 
             </ul>
         </div>
+    </nav>
 
-        <ul class="cart-button">
-            <li class="ml-6 text-xl">
-                <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
-                    <span id="cart-counter" class="text-white font-bold pr-2">
-                        <%= session.cart ? session.cart.totalQty : '' %>
-                    </span>
-                    <img src="/public/img/cart.png" alt="cart" />
-                </a>
-            </li>
-        </ul>
-
-        <div class="menu-wrap">
-            <input type="checkbox" class="toggler">
-            <div class="hamburger">
-                <div></div>
-            </div>
-            <div class="menu">
-                <div>
-                    <div>
-                        <ul class="flex items-center default-ul">
-                            <li class="ml-6 text-xl">
-                                <a href="/">Menu</a>
-                            </li>
-
-                            <% if(user) { %>
-                                <% if (user.role === 'admin'){ %>
-                                    <li class="ml-6 text-xl">
-                                        <a href="/admin/customer/orders">History</a>
-                                    </li>
-                                    <li class="ml-6 text-xl">
-                                        <a href="/contact/comments">Comments</a>
-                                    </li>
-                                    <li class="ml-6 text-xl">
-                                        <a href="/admin/orders">Admin Console</a>
-                                    </li>
-                                    <li class="ml-6 text-xl">
-                                        <form id="logout" action="/logout" method="POST">
-                                            <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
-                                        </form>
-                                    </li>
-                                    <%} else{%>
-                                        <li class="ml-6 text-xl">
-                                            <a href="/customer/orders">Orders</a>
-                                        </li>
-                                        <li class="ml-6 text-xl">
-                                            <form id="logout" action="/logout" method="POST">
-                                                <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
-                                            </form>
-                                        </li>
-                                        <% } %>
-
-
-                                            <% } else { %>
-                                                <li class="ml-6 text-xl">
-                                                    <a href="/register">Register</a>
-                                                </li>
-                                                <li class="ml-6 text-xl">
-                                                    <a href="/login">Login</a>
-                                                </li>
-                                                <% } %>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <nav class="container mx-auto flex items-center justify-between py-4 hamburger-navbar" id="top">
+        <div>
+            <a href="/"><img src="/public/img/grillrilla.svg" alt="logo" /></a>
         </div>
+        <% if(user){ %>
+            <% if(user.role === 'customer'){ %>
+                <ul class="flex items-center cart-button">
+                    <li class="ml-20 text-xl">
+                        <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
+                            <span id="cart-counter" class="text-white font-bold pr-2">
+                                <%= session.cart ? session.cart.totalQty : '' %>
+                            </span>
+                            <img src="/public/img/cart.png" alt="cart" />
+                        </a>
+                    </li>
+                </ul>
+                <% } %>
+                    <% }else{ %>
+                        <ul class="flex items-center cart-button">
+                            <li class="ml-20 text-xl">
+                                <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
+                                    <span id="cart-counter" class="text-white font-bold pr-2">
+                                        <%= session.cart ? session.cart.totalQty : '' %>
+                                    </span>
+                                    <img src="/public/img/cart.png" alt="cart" />
+                                </a>
+                            </li>
+                        </ul>
+                        <% } %>
+                            <div class="menu-wrap">
+                                <input type="checkbox" class="toggler">
+                                <div class="hamburger">
+                                    <div></div>
+                                </div>
+                                <div class="menu">
+                                    <div>
+                                        <div>
+                                            <ul class="flex items-center default-ul">
+                                                <li class="ml-6 text-xl">
+                                                    <a href="/">Menu</a>
+                                                </li>
+
+                                                <% if(user) { %>
+                                                    <% if (user.role === 'admin'){ %>
+                                                        <li class="ml-6 text-xl">
+                                                            <a href="/admin/customer/orders">History</a>
+                                                        </li>
+                                                        <li class="ml-6 text-xl">
+                                                            <a href="/contact/comments">Comments</a>
+                                                        </li>
+                                                        <li class="ml-6 text-xl">
+                                                            <a href="/admin/orders">Admin Console</a>
+                                                        </li>
+                                                        <li class="ml-6 text-xl">
+                                                            <form id="logout" action="/logout" method="POST">
+                                                                <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                                                            </form>
+                                                        </li>
+                                                        <%} else{%>
+                                                            <li class="ml-6 text-xl">
+                                                                <a href="/customer/orders">Orders</a>
+                                                            </li>
+                                                            <li class="ml-6 text-xl">
+                                                                <form id="logout" action="/logout" method="POST">
+                                                                    <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                                                                </form>
+                                                            </li>
+                                                            <% } %>
+                                                                <% } else { %>
+                                                                    <li class="ml-6 text-xl">
+                                                                        <a href="/register">Register</a>
+                                                                    </li>
+                                                                    <li class="ml-6 text-xl">
+                                                                        <a href="/login">Login</a>
+                                                                    </li>
+
+                                                                    <% } %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
     </nav>
 
     <%- body %>
