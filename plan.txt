@@ -63,3 +63,11 @@
 23. Build project for deployment
 
 24. Deploy project on live server
+
+25. Build Payment Gateway
+		- dependencies 
+			- stripe[@stripe/stripe-js]
+			- npm i stripe
+
+26. Plugin for Advance JS because of Larwel Mix
+		- dependencies @babel/plugin-proposal-class-properties

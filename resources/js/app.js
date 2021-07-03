@@ -4,6 +4,7 @@ let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cart-counter')
 import moment from 'moment'
 import { initAdmin } from './admin'
+import { initStripe } from './stripe'
 
 function updateCart(pizza) {
     axios.post('/update-cart', pizza).then(res => {
@@ -73,6 +74,10 @@ function updateStatus(order) {
     })
 
 }
+
+// Stripe
+initStripe()
+
 
 updateStatus(order);
 

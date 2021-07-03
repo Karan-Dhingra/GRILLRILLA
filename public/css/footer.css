@@ -182,10 +182,11 @@ footer {
     height: 40px;
     width: 100%;
     border: none;
+    color: var(--pure);
     outline: none;
     background: var(--primary-footer);
     font-size: 1.0625rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--smooth);
 }

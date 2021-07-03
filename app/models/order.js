@@ -10,9 +10,10 @@ const orderSchema = new Schema({
     items: { type: Object, required: true },
     phone: { type: String, required: true },
     address: { type: String, required: true },
-    payment: { type: String, default: 'COD' },
-    status: { type: String, default: 'order_placed' }
-}, { timestamps: true });
+    paymentType: { type: String, default: 'COD' },
+    paymentStatus: { type: Boolean, default: false },
+    status: { type: String, default: 'order_placed' },
+}, { timestamps: true })
 
 
 module.exports = mongoose.model('Order', orderSchema)
