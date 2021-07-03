@@ -79,16 +79,16 @@ Install project with npm
   npm install tailwindcss
 ```
 
-6. To compiler .sass file
+6. To compiler .scss file
 
 ```bash
   npm install laravel-mix
 ```
 
-7. To use .sass file //This works as css file which is later on compiled with the help of larvel-mix.
+7. To use .scss file //This works as css file which is later on compiled with the help of larvel-mix.
 
 ```bash
-  npm install node-sass
+  npm install node-scss
 ```
 
 8. To connect with mongo db
