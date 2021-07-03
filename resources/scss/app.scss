@@ -311,8 +311,8 @@ section.status {
     }
 }
 
-@media (min-width: 700px) {
-    .menu-wrap {
+@media (min-width: 700.5px) {
+    .hamburger-navbar {
         display: none;
     }
     .cart-button {
@@ -320,10 +320,13 @@ section.status {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 701px) {
     .default-navbar,
     .default-ul {
         display: none;
+    }
+    .cart-button {
+        margin-right: -180px;
     }
     .menu-wrap {
         // position: fixed;
@@ -455,9 +458,24 @@ section.status {
     }
 }
 
-@media(max-width: 460px) {
+@media(max-width: 590px) {
     .cart-button {
-        margin-right: 34px;
+        margin-right: -100px;
+    }
+    .cart-button li {
+        margin-left: 0rem;
+    }
+}
+
+@media(max-width: 480px) {
+    .cart-button {
+        margin-right: -40px;
+    }
+}
+
+@media(max-width: 360px) {
+    .cart-button {
+        margin-right: 0px;
     }
 }
 
