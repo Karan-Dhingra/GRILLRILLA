@@ -80,97 +80,85 @@ Install project with npm
   npm install tailwindcss
 ```
 
-6. To compiler .scss file
-
-```bash
-  npm install laravel-mix
-```
-
-7. To use .scss file //This works as css file which is later on compiled with the help of larvel-mix.
-
-```bash
-  npm install node-scss
-```
-
-8. To connect with mongo db
+6. To connect with mongo db
 
 ```bash
   npm install connect-mongo
 ```
 
-9. To install mongoose
+7. To install mongoose
 
 ```bash
   npm install mongoose
 ```
 
-10. To store session in our database
+8. To store session in our database
 
 ```bash
   npm install express-session
 ```
 
-11. To use .env file
+9. To use .env file
 
 ```bash
   npm install dotenv
 ```
 
-12. Axios for creating http requests
+10. Axios for creating http requests
 
 ```bash
   npm install axios
 ```
 
-13. To get notification
+11. To get notification
 
 ```bash
   npm install noty
 ```
 
-14. To flash results and error if there are
+12. To flash results and error if there are
 
 ```bash
   npm install express-flash
 ```
 
-15. Passport helps in checking and login
+13. Passport helps in checking and login
 
 ```bash
   npm install passport passport-local express-session
 ```
 
-16. It is used to store password in hash for SECURITY
+14. It is used to store password in hash for SECURITY
 
 ```bash
   npm install bcrypt
 ```
 
-17. To store current time stamp
+15. To store current time stamp
 
 ```bash
   npm install moment
 ```
 
-18. For making realtime events //using this we dont require to reload our page again for latest updates.
+16. For making realtime events //using this we dont require to reload our page again for latest updates.
 
 ```bash
   npm install socket.io
 ```
 
-19. We have to add Stripe feature to use them //Build Payment Gateway
+17. We have to add Stripe feature to use them //Build Payment Gateway
 
 ```bash
   npm install stripe[@stripe/stripe-js]
 ```
 
-20.  Install Stripe //using this we dont require to reload our page again for latest updates.
+18.  Install Stripe //using this we dont require to reload our page again for latest updates.
 
 ```bash
   npm install stripe
 ```
 
-21.  Plugin for Advance JS because of Larwel Mix
+19.  Plugin for Advance JS because of Larwel Mix
 
 ```bash
   @babel/plugin-proposal-class-properties
