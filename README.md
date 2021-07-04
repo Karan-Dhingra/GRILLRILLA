@@ -30,6 +30,7 @@ To run this app in your PC you have to follow these Steps.
 
 - Node Js [refer here](https://www.guru99.com/download-install-node-js.html)
 - Mongodb [refer here](https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514)
+- Stripe [refer here](https://stripe.com/en-in)
 
 ## Clone Locally
 
@@ -151,10 +152,28 @@ Install project with npm
   npm install moment
 ```
 
-18. For making realtim events //using this we dont require to reload our page again for latest updates.
+18. For making realtime events //using this we dont require to reload our page again for latest updates.
 
 ```bash
   npm install socket.io
+```
+
+19. We have to add Stripe feature to use them //Build Payment Gateway
+
+```bash
+  npm install stripe[@stripe/stripe-js]
+```
+
+20.  Install Stripe //using this we dont require to reload our page again for latest updates.
+
+```bash
+  npm install stripe
+```
+
+21.  Plugin for Advance JS because of Larwel Mix
+
+```bash
+  @babel/plugin-proposal-class-properties
 ```
 
 ## Further Steps
@@ -166,6 +185,7 @@ Go to file `.env.example` file rename file to `.env`
 ```
 COOKIES_SECRET =
 MONGO_CONNECTION_URL =
+STRIPE_PRIVATE_KEY = 
 ```
 
 You will find something like this after renaming file to `.env` just write something here.
@@ -175,6 +195,10 @@ In `MONGO_CONNECTION_URL` fill the address of your database. For this if you are
 locally on your PC just go to Mongo Compass and make a database let it be `GRILLRILLA`
 make a collection menu and insert Menu content by uploading file.
 You have a `Menu.json` file just upload there.
+After making database add `mongodb://localhost/GRILLRILLA` make sure your database name is `GRILLRILLA`.
+
+In `STRIPE_PRIVATE_KEY` you have to write Stripe key for this you have to sign in `Stripe.com` link is given above in Pre-requists. This Private key is available on Stripe.com
+Steps to get your Private Key is ***`SignIn > Developers [You will se Dashboard, On Left Side in Navbar] > API Keys > Secret Key [Reveal Test Key] copy it and paste there.`***
 
 ## Finish
 
