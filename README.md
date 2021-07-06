@@ -15,9 +15,14 @@ To run this app in your PC you have to follow these Steps.
 
 ![App Screenshot 2](/public/img/screenshots/2.png?raw=true "Optional Title")
 
+![App Screenshot 3](/public/img/screenshots/3.png?raw=true "Optional Title")
+#### Footer
+
+![App Screenshot 4](/public/img/screenshots/4.png?raw=true "Optional Title")
+
 #### Admin Page (Only for ADMINS)
 
-![App Screenshot 3](/public/img/screenshots/3.png?raw=true "Optional Title")
+![App Screenshot 5](/public/img/screenshots/5.png?raw=true "Optional Title")
 
 ## Tech Stack
 
