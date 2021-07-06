@@ -5,7 +5,8 @@ const orderController = require('../app/http/controllers/customers/orderControll
 const adminOrderController = require('../app/http/controllers/admin/orderController')
 const statusController = require('../app/http/controllers/admin/statusController')
 const contactController = require('../app/http/controllers/contactController')
-const orderComment = require('../app/http/controllers/admin/orderComment')
+const orderCustomerAdmin = require('../app/http/controllers/admin/orderCustomerAdmin')
+const addMenuController = require('../app/http/controllers/admin/addMenuController')
 
 // MiddleWare
 const guests = require('../app/http/middleware/guest')
@@ -31,14 +32,18 @@ function initRoutes(app) {
     app.get('/customer/orders', auth, orderController().index)
     app.get('/customer/orders/:id', auth, orderController().show)
 
-    app.get('/admin/customer/orders', admin, auth, orderComment().index)
-        // app.get('/admin/customer/orders/:id', auth, admin, orderComment().show)
+    app.get('/admin/customer/orders', admin, auth, orderCustomerAdmin().index)
+    app.get('/admin/customer/orders/:id', auth, admin, orderCustomerAdmin().show)
     app.get('/admin/orders', admin, adminOrderController().index)
 
     app.post('/admin/order/status', admin, statusController().update)
 
     app.post('/contact', auth, contactController().index)
-    app.get('/contact/comments', admin, auth, contactController().comments)
+    app.get('/admin/comments', admin, auth, contactController().comments)
+
+    // Add Menu
+    app.get('/admin/menu', admin, addMenuController().show)
+    app.post('/admin/menu/add-menu', admin, addMenuController().insert)
 
 }
 

@@ -7,7 +7,7 @@
     {
         "name": "Vegies pizza",
         "image": "/menu/2.jpg",
-        "price": "600",
+        "price": 600,
         "size": "large"
     },
     {
@@ -69,5 +69,77 @@
         "image": "/menu/12.jpg",
         "price": 150,
         "size": "regular"
+    },
+    {
+        "name": "Veg Wrap ",
+        "image": "/menu/13.jpg",
+        "price": 145,
+        "size": "regular"
+    },
+    {
+        "name": "Spicy Paneer Wrap ",
+        "image": "/menu/14.jpg",
+        "price": 175,
+        "size": "small"
+    },
+    {
+        "name": "Paneer Tandori Wrap ",
+        "image": "/menu/15.jpg",
+        "price": 150,
+        "size": "regular"
+    },
+    {
+        "name": "Mix Wrap ",
+        "image": "/menu/16.jpg",
+        "price": 500,
+        "size": "large"
+    },
+    {
+        "name": "Oreo Shake",
+        "image": "/menu/17.jpg",
+        "price": 140,
+        "size": "bevrages"
+    },
+    {
+        "name": "Chocolate Shake",
+        "image": "/menu/18.jpg",
+        "price": 120,
+        "size": "bevrages"
+    },
+    {
+        "name": "Mint Mojito",
+        "image": "/menu/19.jpg",
+        "price": 95,
+        "size": "bevrages"
+    },
+    {
+        "name": "Tamarind Twist",
+        "image": "/menu/20.jpg",
+        "price": 100,
+        "size": "bevrages"
+    },
+    {
+        "name": "Plain Dosa ",
+        "image": "/menu/21.jpg",
+        "price": 200,
+        "size": "large"
+    },
+    {
+        "name": "Tandoori Chaap",
+        "image": "/menu/22.jpg",
+        "price": 150,
+        "size": "medium"
+    },
+    {
+        "name": "Black Burger",
+        "image": "/menu/23.webp",
+        "price": 300,
+        "size": "medium"
+    },
+    {
+        "name": "Red Burger ",
+        "image": "/menu/24.webp",
+        "price": 280,
+        "size": "medium"
     }
 ]

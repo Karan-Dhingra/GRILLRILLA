@@ -8,12 +8,12 @@
                 </p>
             </div>
             <% } %>
-                <table class="w-full table-auto bg-white">
+                <table class="w-full table-auto">
                     <thead>
                         <tr>
-                            <th class="px-4 py-2  w-96 text-left">Email</th>
+                            <th class="start-head px-4 py-2  w-96 text-left">Email</th>
                             <th class="px-4 py-2 w-96 text-left">Message</th>
-                            <th class="px-4 py-2 w-96 text-left">Time</th>
+                            <th class="start-end px-4 py-2 w-96 text-left">Date & Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +27,7 @@
                                         <%= comment.message %>
                                     </td>
                                     <td class="border px-4 py-2">
-                                        <%= moment(comment.createdAt).format('hh:mm A') %>
+                                        <%= moment(comment.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
                                     </td>
                                 </tr>
                                 <% }) %>

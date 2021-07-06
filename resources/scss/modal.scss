@@ -1,0 +1,34 @@
+@import './variables';
+html {
+    scroll-behavior: smooth;
+    transition: -.3s ease-in-out;
+}
+
+.modal {
+    z-index: 2;
+}
+
+.modal-button {
+    // border: 2px solid $primary;
+    background: getColor(primary);
+    color: getColor(pure);
+    transition: $smooth;
+    &:hover {
+        background: getColor(primary-hover);
+        transition: $smooth;
+    }
+}
+
+.add-button {
+    background: getColor(primary);
+    color: getColor(pure);
+    transition: $smooth;
+    &:hover {
+        background: getColor(primary-hover);
+        transition: $smooth;
+    }
+}
+
+.back-modal {
+    background: getColor(dark);
+}

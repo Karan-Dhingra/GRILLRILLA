@@ -7,15 +7,17 @@ function orderController() {
         store(req, res) {
             // Validate request
             const { phone, address, stripeToken, paymentType } = req.body
+            console.log(phone, address, stripeToken, paymentType, "KD");
             if (!phone || !address) {
                 return res.status(422).json({ message: 'All fields are required' });
             }
-
+            console.log(req.body);
             const order = new Order({
                 customerId: req.user._id,
                 items: req.session.cart.items,
                 phone,
                 address
+                // paymentType
             })
             order.save().then(result => {
                 Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
@@ -27,23 +29,24 @@ function orderController() {
                             amount: req.session.cart.totalPrice * 100,
                             source: stripeToken,
                             currency: 'inr',
-                            description: `Pizza order: ${placedOrder._id}`
+                            description: `GRILLRILLA order: ${placedOrder._id}`
                         }).then(() => {
-                            placedOrder.paymentStatus = true
-                            placedOrder.paymentType = paymentType
+                            placedOrder.paymentStatus = true;
+                            placedOrder.paymentType = paymentType;
                             placedOrder.save().then((ord) => {
                                 // Emit
+                                console.log(ord);
                                 const eventEmitter = req.app.get('eventEmitter')
                                 eventEmitter.emit('orderPlaced', ord)
                                 delete req.session.cart
                                 return res.json({ message: 'Payment , Order placed successfully' });
                             }).catch((err) => {
-                                console.log(err)
+                                console.log("46 Line", err)
                             })
 
                         }).catch((err) => {
-                            delete req.session.cart
-                            return res.json({ message: 'OrderPlaced but payment failed, You can pay at delivery time' });
+                            // delete req.session.cart
+                            return res.json({ message: 'Payment Failed' });
                         })
                     } else {
                         delete req.session.cart

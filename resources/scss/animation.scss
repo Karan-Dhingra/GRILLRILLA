@@ -1,0 +1,31 @@
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateY(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes transitioncustom {
+    from {
+        opacity: 0;
+        transform: translateY(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero {
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.menu:focus,
+.card:focus-visible {
+    animation: 1s ease-out 0s 1 transitioncustom;
+}

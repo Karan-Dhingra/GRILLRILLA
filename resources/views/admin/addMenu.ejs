@@ -1,0 +1,116 @@
+<section class="comments light-section pb-24">
+    <div class="container mx-auto pt-12 comment-box">
+        <div class="flex justify-between items-center">
+            <h1 class="font-bold text-2xl mb-4">All Items</h1>
+            <button class="modal-open modal-button font-bold py-2 px-3 rounded-full text-xl mb-4">
+                <i class="fas fa-plus"></i></button>
+
+            <!--Modal-->
+            <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+                <div class="modal-overlay absolute w-full h-full back-modal opacity-50"></div>
+
+                <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+                    <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+
+                    </div>
+
+                    <!-- Add margin if you want to see some of the overlay behind the modal-->
+                    <div class="modal-content py-4 text-left px-6">
+                        <!--Title-->
+                        <!-- <div class="flex justify-between items-center pb-3">
+                            <p class="text-2xl font-bold">Simple Modal!</p>
+                            <div class="modal-close cursor-pointer z-50">
+
+                            </div>
+                        </div> -->
+
+                        <!--Body-->
+                        <div class="">
+                            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="/admin/menu/add-menu">
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                            Name
+                        </label>
+                                    <input name="name" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Burger">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                            Image
+                        </label>
+                                    <input name="image" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " id="username" type="text" placeholder="/menu/x.jpg">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                            Price
+                        </label>
+                                    <input name="price" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " id="username" type="number" placeholder="200">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                            Size
+                        </label>
+                                    <input name="size" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Medium">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <button class="add-button font-bold py-2 px-4 focus:outline-none rounded-full" type="submit">
+                            ADD
+                        </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Footer
+                        <div class="flex justify-end pt-2 ">
+                            <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400 ">Close</button>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <table class="w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="start-head px-4 py-2 w-96 text-left ">Name</th>
+                    <th class="px-4 py-2 w-96 text-left ">Size</th>
+                    <th class="px-4 py-2 w-96 text-left ">Image</th>
+                    <th class="px-4 py-2 w-96 text-left ">Price</th>
+                    <th class="start-end px-4 py-2 w-96 text-left ">Visibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(item.length) { %>
+                    <% item.forEach((item)=> { %>
+                        <tr>
+                            <td class="border px-4 py-2 ">
+                                <%= item.name %>
+                            </td>
+                            <td class="border px-4 py-2 ">
+                                <%= item.size %>
+                            </td>
+                            <td class="border px-4 py-2 ">
+                                <%= item.image %>
+                            </td>
+                            <td class="border px-4 py-2 ">
+                                ₹
+                                <%= item.price %>
+                            </td>
+                            <td class="border px-4 py-2 ">
+                                VISIBLE
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td class="p-4 "><span>No Item Found!!</span></td>
+                                </tr>
+                                <% } %>
+            </tbody>
+
+        </table>
+    </div>
+</section>

@@ -4,30 +4,66 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tailwind -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- STYLE SHEET -->
     <link rel="stylesheet" href="/public/css/app.css" />
     <link rel="stylesheet" href="/public/css/footer.css" />
-    <link rel="stylesheet" href="./errors/404_error.css" />
     <!-- Line Awesome -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-32x32.png">
+
     <title>GRILLRILLA</title>
 </head>
 
-<body>
+<style>
+    /* .theme-light {
+        --color-primary: #0060df;
+        --color-secondary: #fbfbfe;
+        --color-accent: #fd6f53;
+        --font-color: #000000;
+    }
+    
+    .theme-dark {
+        --color-primary: #17ed90;
+        --color-secondary: #2a2c2d;
+        --color-accent: #12cdea;
+        --font-color: #ffffff;
+    } */
+</style>
+
+<body onload="loadPage()">
+    <!-- Loader -->
+    <div id="loading">
+        <img src="/public/img/loader.gif" alt="loader" id="loading-image" />
+    </div>
+
+    <!-- Scroll to Tpo Button -->
+    <a class="button-scroll" id="button"></a>
+
+    <!-- Theme Changer -->
+    <!-- <label id="switch" class="switch">
+        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <span class="slider round"></span>
+    </label> -->
+
     <nav class="container mx-auto flex items-center justify-between py-4 default-navbar" id="top">
         <div>
-            <a href="/"><img src="/public/img/grillrilla.svg" alt="logo" /></a>
+            <a href="/"><img class="logo" src="/public/img/LOGO.png" alt="logo" /></a>
         </div>
         <div class="default-navbar">
             <ul class="flex items-center default-ul">
@@ -36,19 +72,22 @@
                 </li>
 
                 <% if(user) { %>
-                    <% if (user.role === 'admin'){ %>
+                    <% if (user.role==='admin' ){ %>
                         <li class="ml-6 text-xl">
                             <a href="/admin/customer/orders">History</a>
                         </li>
                         <li class="ml-6 text-xl">
-                            <a href="/contact/comments">Comments</a>
+                            <a href="/admin/comments">Comments</a>
+                        </li>
+                        <li class="ml-6 text-xl">
+                            <a href="/admin/menu">Add Items</a>
                         </li>
                         <li class="ml-6 text-xl">
                             <a href="/admin/orders">Admin Console</a>
                         </li>
                         <li class="ml-6 text-xl">
                             <form id="logout" action="/logout" method="POST">
-                                <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                                <a onclick="document.getElementById( 'logout').submit()" href="#">Logout</a>
                             </form>
                         </li>
                         <%} else{%>
@@ -57,14 +96,14 @@
                             </li>
                             <li class="ml-6 text-xl">
                                 <form id="logout" action="/logout" method="POST">
-                                    <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                                    <a onclick="document.getElementById( 'logout').submit()" href="#">Logout</a>
                                 </form>
                             </li>
                             <li class="ml-6 text-xl">
                                 <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
                                     <span id="cart-counter" class="text-white font-bold pr-2">
-                                    <%= session.cart ? session.cart.totalQty : '' %>
-                                </span>
+                                        <%= session.cart ? session.cart.totalQty : '' %>
+                                    </span>
                                     <img src="/public/img/cart.png" alt="cart" />
                                 </a>
                             </li>
@@ -81,8 +120,8 @@
                                     <li class="ml-6 text-xl">
                                         <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
                                             <span id="cart-counter" class="text-white font-bold pr-2">
-                                    <%= session.cart ? session.cart.totalQty : '' %>
-                                </span>
+                                                <%= session.cart ? session.cart.totalQty : '' %>
+                                            </span>
                                             <img src="/public/img/cart.png" alt="cart" />
                                         </a>
                                     </li>
@@ -91,36 +130,24 @@
             </ul>
         </div>
     </nav>
-
     <nav class="container mx-auto flex items-center justify-between py-4 hamburger-navbar" id="top">
         <div>
-            <a href="/"><img src="/public/img/grillrilla.svg" alt="logo" /></a>
+            <a href="/"><img class="logo" src="/public/img/LOGO.png" alt="logo" /></a>
         </div>
-        <% if(user){ %>
-            <% if(user.role === 'customer'){ %>
-                <ul class="flex items-center cart-button">
-                    <li class="ml-20 text-xl">
-                        <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
-                            <span id="cart-counter" class="text-white font-bold pr-2">
-                                <%= session.cart ? session.cart.totalQty : '' %>
-                            </span>
-                            <img src="/public/img/cart.png" alt="cart" />
-                        </a>
-                    </li>
-                </ul>
-                <% } %>
-                    <% }else{ %>
-                        <ul class="flex items-center cart-button">
-                            <li class="ml-20 text-xl">
-                                <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
-                                    <span id="cart-counter" class="text-white font-bold pr-2">
-                                        <%= session.cart ? session.cart.totalQty : '' %>
-                                    </span>
-                                    <img src="/public/img/cart.png" alt="cart" />
-                                </a>
-                            </li>
-                        </ul>
-                        <% } %>
+        <div class="hamburger-navbar">
+            <% if(user){ %>
+                <% if(user.role==='customer' ){ %>
+                    <ul class="mx-auto flex items-center">
+                        <li class="text-xl">
+                            <ul class="flex items-center cart-button">
+                                <li class="ml-20 text-xl">
+                                    <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
+                                        <img src="/public/img/cart.png" alt="cart" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="ml-7 text-xl">
                             <div class="menu-wrap">
                                 <input type="checkbox" class="toggler">
                                 <div class="hamburger">
@@ -133,50 +160,100 @@
                                                 <li class="ml-6 text-xl">
                                                     <a href="/">Menu</a>
                                                 </li>
-
-                                                <% if(user) { %>
-                                                    <% if (user.role === 'admin'){ %>
-                                                        <li class="ml-6 text-xl">
-                                                            <a href="/admin/customer/orders">History</a>
-                                                        </li>
-                                                        <li class="ml-6 text-xl">
-                                                            <a href="/contact/comments">Comments</a>
-                                                        </li>
-                                                        <li class="ml-6 text-xl">
-                                                            <a href="/admin/orders">Admin Console</a>
-                                                        </li>
-                                                        <li class="ml-6 text-xl">
-                                                            <form id="logout" action="/logout" method="POST">
-                                                                <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
-                                                            </form>
-                                                        </li>
-                                                        <%} else{%>
-                                                            <li class="ml-6 text-xl">
-                                                                <a href="/customer/orders">Orders</a>
-                                                            </li>
-                                                            <li class="ml-6 text-xl">
-                                                                <form id="logout" action="/logout" method="POST">
-                                                                    <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
-                                                                </form>
-                                                            </li>
-                                                            <% } %>
-                                                                <% } else { %>
-                                                                    <li class="ml-6 text-xl">
-                                                                        <a href="/register">Register</a>
-                                                                    </li>
-                                                                    <li class="ml-6 text-xl">
-                                                                        <a href="/login">Login</a>
-                                                                    </li>
-
-                                                                    <% } %>
+                                                <li class="ml-6 text-xl">
+                                                    <a href="/customer/orders">Orders</a>
+                                                </li>
+                                                <li class="ml-6 text-xl">
+                                                    <form id="logout" action="/logout" method="POST">
+                                                        <a onclick="document.getElementById( 'logout').submit()" href="#">Logout</a>
+                                                    </form>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </li>
+                    </ul>
+                    <% } else  if(user.role==='admin' ){ %>
+                        <div class="menu-wrap">
+                            <input type="checkbox" class="toggler">
+                            <div class="hamburger">
+                                <div></div>
+                            </div>
+                            <div class="menu">
+                                <div>
+                                    <div>
+                                        <ul class="flex items-center default-ul">
+                                            <li class="ml-6 text-xl">
+                                                <a href="/">Menu</a>
+                                            </li>
+                                            <li class="ml-6 text-xl">
+                                                <a href="/admin/customer/orders">History</a>
+                                            </li>
+                                            <li class="ml-6 text-xl">
+                                                <a href="/contact/comments">Comments</a>
+                                            </li>
+                                            <li class="ml-6 text-xl">
+                                                <a href="/admin/menu">Add Items</a>
+                                            </li>
+                                            <li class="ml-6 text-xl">
+                                                <a href="/admin/orders">Admin Console</a>
+                                            </li>
+                                            <li class="ml-6 text-xl">
+                                                <form id="logout" action="/logout" method="POST">
+                                                    <a onclick="document.getElementById( 'logout').submit()" href="#">Logout</a>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% }else{ %>
+                                <ul class="mx-auto flex items-center">
+                                    <li class="text-xl">
+                                        <ul class="flex items-center cart-button">
+                                            <li class="ml-20 text-xl">
+                                                <a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center last-child-a">
+                                                    <img src="/public/img/cart.png" alt="cart" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="ml-5 text-xl">
+                                        <div class="menu-wrap">
+                                            <input type="checkbox" class="toggler">
+                                            <div class="hamburger">
+                                                <div></div>
+                                            </div>
+                                            <div class="menu">
+                                                <div>
+                                                    <div>
+                                                        <ul class="flex items-center default-ul">
+                                                            <li class="ml-6 text-xl">
+                                                                <a href="/">Menu</a>
+                                                            </li>
+                                                            <li class="ml-6 text-xl">
+                                                                <a href="/register">Register</a>
+                                                            </li>
+                                                            <li class="ml-6 text-xl">
+                                                                <a href="/login">Login</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <% } %>
+        </div>
     </nav>
 
     <%- body %>
+
         <footer>
             <div class="main-content">
                 <div class="left box">
@@ -185,10 +262,14 @@
                         <p>Grillrilla isn’t just about food, it is about our passion and love towards food with loyalty. Come explore our various concepts that provide the Indian culinary experience. As the age old saying goes, “The way to one’s heart courses
                             through their stomach”. We want to leave no stone unturned to win your hearts.</p>
                         <div class="social">
-                            <a href="#"><span class="fab fa-twitter"></span></a>
-                            <a href="#"><span class="fab fa-instagram"></span></a>
-                            <a href="#"><span class="fab fa-facebook"></span></a>
-                            <a href="#"><span class="fab fa-youtube"></span></a>
+                            <a data-aos="fade-right" data-aos-duration="1000" href="#"><span
+                                class="fab fa-twitter"></span></a>
+                            <a data-aos="fade-right" data-aos-duration="1000" href="#"><span
+                                class="fab fa-instagram"></span></a>
+                            <a data-aos="fade-right" data-aos-duration="1000" href="#"><span
+                                class="fab fa-facebook"></span></a>
+                            <a data-aos="fade-right" data-aos-duration="1000" href="#"><span
+                                class="fab fa-youtube"></span></a>
                         </div>
                     </div>
                 </div>
@@ -196,16 +277,16 @@
                     <h2>Address</h2>
                     <div class="content">
                         <a href="https://tinyurl.com/67w4f3mn" target="_blank">
-                            <div class="place">
+                            <div data-aos="zoom-out-up" class="place">
                                 <span class="fas fa-map-marker-alt"></span>
                                 <span class="text">Chandigarh, India</span>
                             </div>
                         </a>
-                        <div class="phone">
+                        <div data-aos="zoom-out-up" class="phone">
                             <span class="fas fa-phone-alt"></span>
                             <span class="text">9876543215</span>
                         </div>
-                        <div class="email">
+                        <div data-aos="zoom-out-up" class="email">
                             <span class="fas fa-envelope"></span>
                             <span class="text">crave@grill.com</span>
                         </div>
@@ -237,8 +318,68 @@
                 </center>
             </div>
         </footer>
-        <script src="/socket.io/socket.io.js"></script>
 </body>
-<script src="/public/js/app.js "></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/js/app.js"></script>
+<script>
+    const btn = document.querySelector('#button');
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop
+        if (scrolled > 300) {
+            console.log("SCROLLING");
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    };
+
+    btn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+    });
+    window.addEventListener('scroll', toggleVisible);
+</script>
+<script>
+    const preLoader = document.getElementById('loading');
+
+    function loadPage() {
+        preLoader.style.display = 'none';
+    }
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    // function setTheme(themeName) {
+    //     localStorage.setItem('theme', themeName);
+    //     document.documentElement.className = themeName;
+    // }
+
+    // // function to toggle between light and dark theme
+    // function toggleTheme() {
+    //     if (localStorage.getItem('theme') === 'dark') {
+    //         setTheme('light');
+    //     } else {
+    //         setTheme('dark');
+    //     }
+    // }
+
+    // // Immediately invoked function to set the theme on initial load
+    // (function() {
+    //     if (localStorage.getItem('theme') === 'dark') {
+    //         setTheme('dark');
+    //         document.getElementById('slider').checked = false;
+    //     } else {
+    //         setTheme('light');
+    //         document.getElementById('slider').checked = true;
+    //     }
+    // })();
+</script>
 
 </html>

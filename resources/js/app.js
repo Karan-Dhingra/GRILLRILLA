@@ -5,6 +5,7 @@ let cartCounter = document.querySelector('#cart-counter')
 import moment from 'moment'
 import { initAdmin } from './admin'
 import { initStripe } from './stripe'
+import { modal } from './modal'
 
 function updateCart(pizza) {
     axios.post('/update-cart', pizza).then(res => {
@@ -37,7 +38,7 @@ const alertMsg = document.querySelector('#success-alert')
 if (alertMsg) {
     setTimeout(() => {
         alertMsg.remove()
-    }, 1000)
+    }, 2000)
 }
 
 
@@ -50,7 +51,7 @@ let order = hiddenInput ? hiddenInput.value : null
 order = JSON.parse(order)
 let time = document.createElement('small')
 
-
+// Status
 function updateStatus(order) {
     statuses.forEach((status) => {
         console.log(order);
@@ -75,11 +76,10 @@ function updateStatus(order) {
 
 }
 
+updateStatus(order);
 // Stripe
 initStripe()
 
-
-updateStatus(order);
 
 // Socket
 let socket = io()
@@ -107,3 +107,6 @@ socket.on('orderUpdated', (data) => {
         progressBar: false,
     }).show();
 })
+
+
+modal()

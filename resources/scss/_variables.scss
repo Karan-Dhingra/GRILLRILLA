@@ -1,12 +1,30 @@
-// Colors
-$primary: #ff9106;
-$primary-hover: #af6407;
-$secondary: #edfdfb;
-$pure: #fff;
-$dark:#232323;
-$gray: #b9bab8;
-$footer-line: #1a1a1a;
-$footer-back-color: #151515;
-$footer-color: #656565;
-// Transistions
 $smooth: all .3s ease-in-out;
+
+
+//light theme
+// $colors: ( primary: #fbb215, table-back:#ffffff99, primary-hover: #bd860f, secondary: #fff9ef, pure: #fff, dark:#232323, body-color:#fff, gray: #b9bab8, font-color: #42394a, footer-line: #1a1a1a, footer-back-color: #151515, footer-color: #656565);
+
+//dark theme
+$colors-dark: (primary: #E02A26, primary-add: #f47321, primary-add-hover: #bb581a, star-color: #f47321, table-back:#0000007c, primary-hover: #8a0f13, secondary: #fff9ef2d, pure: #fff, body-color:#121212, dark:#232323, gray: #b9bab8, font-color: #FFF, footer-line: #1a1a1a, footer-back-color: #00000069, footer-color: #656565);
+//converting scss variable into css variable
+:root {
+    @each $name,
+    $color in $colors-dark {
+        --color-#{$name}: #{$color};
+    }
+    --theme: 'dark';
+}
+
+// @media(prefers-color-scheme: dark) {
+//      :root {
+//         @each $name,
+//         $color in $colors {
+//             --color-#{$name}: #{$color};
+//         }
+//         --theme: 'light';
+//     }
+// }
+//creating a function to get color instead of using css varible
+@function getColor($color-name) {
+    @return var(--color-#{$color-name});
+}
