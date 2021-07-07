@@ -9,7 +9,7 @@
             <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
                 <div class="modal-overlay absolute w-full h-full back-modal opacity-50"></div>
 
-                <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                <div class="modal-container w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
 
                     <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
 
@@ -26,28 +26,28 @@
                         </div> -->
 
                         <!--Body-->
-                        <div class="">
-                            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="/admin/menu/add-menu">
+                        <div class="modal-form">
+                            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="/admin/menu/add-menu">
                                 <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                                    <label class="block text-sm font-bold mb-2">
                             Name
                         </label>
                                     <input name="name" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Burger">
                                 </div>
                                 <div class="mb-6">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                                    <label class="block text-sm font-bold mb-2">
                             Image
                         </label>
                                     <input name="image" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " id="username" type="text" placeholder="/menu/x.jpg">
                                 </div>
                                 <div class="mb-6">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                                    <label class="block text-sm font-bold mb-2">
                             Price
                         </label>
                                     <input name="price" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " id="username" type="number" placeholder="200">
                                 </div>
                                 <div class="mb-6">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                                    <label class="block text-sm font-bold mb-2">
                             Size
                         </label>
                                     <input name="size" required class="modal-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Medium">

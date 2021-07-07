@@ -143,9 +143,11 @@ section.comments {
 }
 
 .btn-primary {
+    outline: none;
     background-color: getColor(primary);
     transition: all .3s ease-in-out;
     &:hover {
+        outline: none;
         background: getColor(primary-hover);
         transition: all .3s ease-in-out;
     }
@@ -161,6 +163,9 @@ section.cart {
 section.login {
     background-color: getColor(secondary);
     min-height: 90vh;
+    form{
+        background-color: #0b0b0b99;
+    }
     a {
         color: getColor(primary);
         &:hover {
@@ -215,20 +220,27 @@ footer input {
 }
 
 .auth-input input {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.144);
     color: #000;
-    background: white;
+    background: #ffffffe8;
 }
 
 .modal-input {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.144);
     color: #000;
-    background: white;
+    background: #ffffffe8;
+}
+
+.modal-container{
+    // background-color: #0b0b0b99;
+    form {
+        background-color: #0b0b0bbf;
+    }
 }
 
 .cart-data-input{
     color: #000;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.144);
     background: white;
     border-radius: 8px;
 }
@@ -253,6 +265,9 @@ footer input {
 section.register {
     background-color: getColor(secondary);
     min-height: 30vh;
+    form {
+        background-color: #0b0b0b99;
+    }
     a {
         color: getColor(primary);
         &:hover {

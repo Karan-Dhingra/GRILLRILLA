@@ -18,7 +18,8 @@
                             <th class="start-head px-4 py-2 text-left">Orders</th>
                             <th class="px-4 py-2 text-left">Phone</th>
                             <th class="px-4 py-2 text-left">Address</th>
-                            <th class="px-4 py-2 text-left">Status</th>
+                            <th class="px-4 py-2 text-left">Payment Status</th>
+                            <th class="px-4 py-2 text-left">Delivery</th>
                             <th class="px-4 py-2 text-left">Date</th>
                             <th class="start-end px-4 py-2 text-left">Time</th>
                         </tr>
@@ -47,14 +48,21 @@
                                     <td class="border px-4 py-2">
                                         <% if(order.status === 'completed' || order.paymentStatus) {%>
                                             <% if(order.paymentStatus) {%>
-                                                ✔️ PAID BY CARD 💳
+                                                PAID BY CARD 💳
                                             <% }else{ %>
-                                                ✔️ PAID BY CASH 💵
+                                                PAID BY CASH 💵
                                             <% } %>
                                         <% }else{ %>
-                                            ❌ PENDING ❗
+                                            NOT PAID ❗❗
                                         <% } %>
                                         </td>
+                                    <td class="border px-4 py-2">
+                                        <% if(order.status === 'completed' || order.status === 'delivered') {%>
+                                            ✔️
+                                        <% } else { %>
+                                            ❌ 
+                                            <% } %>
+                                    </td>
                                     <td class="border px-4 py-2">
                                         <%= moment(order.createdAt).format('MMMM Do YYYY') %>
                                     </td>

@@ -2462,36 +2462,16 @@ function _initStripe() {
 
           case 7:
             paymentType.addEventListener('change', function (e) {
-              console.log("DISPLAY" + e.target.value);
+              console.log("Payment Type: " + e.target.value);
 
               if (e.target.value === 'card') {
                 // Display Widget
-                console.log("CREATED");
                 card = new _CardWidget__WEBPACK_IMPORTED_MODULE_3__.CardWidget(stripe);
                 card.mount();
-
-                if (card) {
-                  console.log("YES");
-                }
-
-                if (!card) {
-                  console.log("NO");
-                }
               } else if (e.target.value === 'COD') {
                 // mountWidget();
-                console.log("DESTROY");
-                console.log(card);
                 card.destroy();
                 card = null;
-                console.log(card);
-
-                if (card) {
-                  console.log("YES");
-                }
-
-                if (!card) {
-                  console.log("NO");
-                }
               }
             }); // Ajax Call
 
@@ -2522,11 +2502,8 @@ function _initStripe() {
                             _iterator.f();
                           }
 
-                          console.log(formObject);
-                          console.log(card, "CARD");
-
                           if (card) {
-                            _context.next = 10;
+                            _context.next = 8;
                             break;
                           }
 
@@ -2534,22 +2511,16 @@ function _initStripe() {
                           (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject);
                           return _context.abrupt("return");
 
-                        case 10:
-                          _context.next = 12;
+                        case 8:
+                          _context.next = 10;
                           return card.createToken();
 
-                        case 12:
+                        case 10:
                           token = _context.sent;
                           formObject.stripeToken = token.id;
-                          (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject); // // Verify card
-                          // stripe.createToken(card).then((result) => {
-                          //     formObject.stripeToken = result.token.id;
-                          //     placeOrder(formObject);
-                          // }).catch((err) => {
-                          //     console.log(err)
-                          // })
+                          (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject);
 
-                        case 15:
+                        case 13:
                         case "end":
                           return _context.stop();
                       }

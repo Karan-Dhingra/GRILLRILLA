@@ -202,7 +202,6 @@ footer {
 .right form .text {
   font-size: 1.0625rem;
   margin-bottom: 2px;
-  color: var(--color-footer-color);
 }
 
 .right form .msg {
@@ -940,10 +939,12 @@ section.comments {
 }
 
 .btn-primary {
+  outline: none;
   background-color: var(--color-primary);
   transition: all 0.3s ease-in-out;
 }
 .btn-primary:hover {
+  outline: none;
   background: var(--color-primary-hover);
   transition: all 0.3s ease-in-out;
 }
@@ -958,6 +959,9 @@ section.cart .amount {
 section.login {
   background-color: var(--color-secondary);
   min-height: 90vh;
+}
+section.login form {
+  background-color: #0b0b0b99;
 }
 section.login a {
   color: var(--color-primary);
@@ -1011,20 +1015,24 @@ footer input {
 }
 
 .auth-input input {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.144);
   color: #000;
-  background: white;
+  background: #ffffffe8;
 }
 
 .modal-input {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.144);
   color: #000;
-  background: white;
+  background: #ffffffe8;
+}
+
+.modal-container form {
+  background-color: #0b0b0bbf;
 }
 
 .cart-data-input {
   color: #000;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.144);
   background: white;
   border-radius: 8px;
 }
@@ -1048,6 +1056,9 @@ footer input {
 section.register {
   background-color: var(--color-secondary);
   min-height: 30vh;
+}
+section.register form {
+  background-color: #0b0b0b99;
 }
 section.register a {
   color: var(--color-primary);
