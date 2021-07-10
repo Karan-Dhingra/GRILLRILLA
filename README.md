@@ -42,132 +42,57 @@ To run this app in your PC you have to follow these Steps.
 Clone the project
 
 ```bash
-  git clone https://github.com/Karan-Dhingra/GRILLRILLA.git
+  git clone https://github.com/User-Name/GRILLRILLA.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd GRILLRILLA
 ```
 
-## Install all Dependencies to run
+## Run these following comaands to run Project
 
-Install project with npm
-
-1. For Initializing npm modules, just press enter for each questions asked and move on.
+1. To set suitable npm version
 
 ```bash
-  npm init
+  npm install -g npm@7.18.1
 ```
 
-2. Install Express
+2. To Install Node Modules
 
 ```bash
-  npm install express
+  npm install
 ```
 
-3. Install Engine
+## Dependencies used
 
-```bash
-  npm install ejs express-ejs-layouts
-```
+1. Express
 
-4. Install Nodemon to run our project
+2. EJS Engine
 
-```bash
-  npm install nodemon -g
-```
+3. Nodemon
 
-5. To import features of Tailwind CSS in our project
+4. Tailwind CSS
 
-```bash
-  npm install tailwindcss
-```
+5. Mongo db
 
-6. To connect with mongo db
+6. Mongoose
 
-```bash
-  npm install connect-mongo
-```
+7. Axios
 
-7. To install mongoose
+8. Noty
 
-```bash
-  npm install mongoose
-```
+9. Passport
 
-8. To store session in our database
+10. Bcrypt
 
-```bash
-  npm install express-session
-```
+11. Socket.io
 
-9. To use .env file
+12. Stripe
 
-```bash
-  npm install dotenv
-```
+13. Larwel Mix
 
-10. Axios for creating http requests
-
-```bash
-  npm install axios
-```
-
-11. To get notification
-
-```bash
-  npm install noty
-```
-
-12. To flash results and error if there are
-
-```bash
-  npm install express-flash
-```
-
-13. Passport helps in checking and login
-
-```bash
-  npm install passport passport-local express-session
-```
-
-14. It is used to store password in hash for SECURITY
-
-```bash
-  npm install bcrypt
-```
-
-15. To store current time stamp
-
-```bash
-  npm install moment
-```
-
-16. For making realtime events //using this we dont require to reload our page again for latest updates.
-
-```bash
-  npm install socket.io
-```
-
-17. We have to add Stripe feature to use them //Build Payment Gateway
-
-```bash
-  npm install stripe[@stripe/stripe-js]
-```
-
-18.  Install Stripe //using this we dont require to reload our page again for latest updates.
-
-```bash
-  npm install stripe
-```
-
-19.  Plugin for Advance JS because of Larwel Mix
-
-```bash
-  @babel/plugin-proposal-class-properties
-```
 
 ## Further Steps
 
