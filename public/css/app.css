@@ -1216,7 +1216,7 @@ section.status {
   }
 
   .menu-wrap .menu > div {
-    background: rgba(54, 70, 97, 0.85);
+    background: rgba(0, 0, 0, 0.54);
     border-radius: 50%;
     width: 200vw;
     height: 200vw;
@@ -1246,6 +1246,11 @@ section.status {
     color: #fff;
     font-size: 1.5rem;
     padding: 1rem;
+  }
+  .menu-wrap .menu > div > div > ul > li:hover {
+    transition: all ease-in-out;
+    color: var(--color-primary);
+    font-weight: bold;
   }
 
   .menu-wrap .menu > div > div > ul > li > a {
